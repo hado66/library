@@ -3,7 +3,7 @@ Django==2.2.2
 
 # mysql
 mysqlclient==1.4.2.post1
-mysqlmapper==2.2.2
+mysqlmapper==2.2.1
 tabledbmapper==0.2.1
 
 # serialize
