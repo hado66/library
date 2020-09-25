@@ -10,4 +10,5 @@ def test(request):
     # MVC_HOLDER.services["test"].insert({'name': 'ddd'})
     data = MVC_HOLDER.services["test"].get_model({"name": "test"})
     print(type(data))
-    return HttpResponse("ok")
+    data = "动态的后端数据"
+    return render(request,"test/index.html",{"data":data})
