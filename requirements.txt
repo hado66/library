@@ -1,0 +1,15 @@
+# frame
+Django==2.2.2
+
+# mysql
+mysqlclient==1.4.2.post1
+mysqlmapper==2.2.2
+tabledbmapper==0.2.1
+
+# serialize
+serializers==0.2.4
+
+# page
+Paginator==0.5.1
+
+python-dateutil==2.8.1
