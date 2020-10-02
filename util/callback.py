@@ -8,7 +8,7 @@ from util.result import HttpResponseCMD, Code
 
 # 接口错误回调
 def api_callback(message):
-    return HttpResponseCMD(Code.parameter_error, message, "").to_response()
+    return HttpResponseCMD(Code.parameter_error, message, "参数错误").to_response()
 
 
 # 页面错误回调

@@ -22,15 +22,16 @@ def test(request):
 
 @parse_parameter
 @match_parameter({
-    "title": "length[0-200]",
-    "model": "range[0-999999]",
-    "address": "range[0-999999]",
-    "status": "range[0-5]",
-}, page_callback)
-def index(request):
+    "title": "length[0-25]",
+    "type": "range[0-999999]",
+    "year": "range[0-999999]",
+}, api_callback)
+def index(request, parameter):
     cursor = connection.cursor()
     cursor.execute("select table_name from information_schema.tables where table_schema='library'")
     tables = cursor.fetchall()
     print(tables)
+    print(parameter)
+
 
     return render(request, "index.html")

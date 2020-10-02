@@ -3,8 +3,7 @@ from datetime import datetime
 from functools import wraps
 
 from util.verification import verification
-
-from opering.settings import BASE_DIR, BASE_HOST, STATIC_URL
+from library.settings import BASE_DIR, STATIC_URL
 from util.uuid import get_uuid
 
 
@@ -93,28 +92,28 @@ def save_file(config):
     return wrap
 
 
-def _save_file(file):
-    """
-    保存文件
-    :param file: 文件对象
-    :return: 保存路径
-    """
-    # 获取当前日期
-    date = datetime.now().strftime("%Y-%m-%d")
-    # 获取文件名
-    file_name = get_uuid() + os.path.splitext(file.name)[1]
-    # 目录创建
-    save_path = BASE_DIR + STATIC_URL + 'upload/' + date + "/"
-    if not os.path.exists(save_path):
-        os.makedirs(save_path)
-    # 文件写入
-    file_path = os.path.join(save_path, file_name)
-    f = open(file_path, 'wb')
-    for chunk in file.chunks():
-        f.write(chunk)
-    f.close()
-    # 计算保存路径
-    return BASE_HOST + STATIC_URL + 'upload/' + date + "/" + file_name
+# def _save_file(file):
+#     """
+#     保存文件
+#     :param file: 文件对象
+#     :return: 保存路径
+#     """
+#     # 获取当前日期
+#     date = datetime.now().strftime("%Y-%m-%d")
+#     # 获取文件名
+#     file_name = get_uuid() + os.path.splitext(file.name)[1]
+#     # 目录创建
+#     save_path = BASE_DIR + STATIC_URL + 'upload/' + date + "/"
+#     if not os.path.exists(save_path):
+#         os.makedirs(save_path)
+#     # 文件写入
+#     file_path = os.path.join(save_path, file_name)
+#     f = open(file_path, 'wb')
+#     for chunk in file.chunks():
+#         f.write(chunk)
+#     f.close()
+#     # 计算保存路径
+#     return BASE_HOST + STATIC_URL + 'upload/' + date + "/" + file_name
 
 
 def check_parameter(config, callback):
