@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>期刊查询</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <style type="text/css">
+        html{height: 100%;}
+        body{
+            width：100%；
+            height: 100%;
+            /*background-image: url(search5.png);*/
+            /*background-image: url(search4.png);*/
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .container{
+            max-width: 960px;  /*设置最大宽度为960px*/
+            margin:0 autos; /*设置内部的块元素水平居中*/
+            text-align: center;
+            line-height: 100px;
+        }
+        .header{
+            margin: 70px;
+            height:20px;
+            
+        }
+        .main{
+            height:300px;
+        }
+        .form-group{
+            padding: 10px;
+        }
+        #name{
+            width: 150px;
+            height: 35px;
+        }
+        table{
+            data-pagination="true"          /*启用分页*/        
+            data-page-size="3"              /*每页包含多少条数据*/
+        }
+        th {
+            text-align:center;
+        }
+        td {
+            text-align:center;
+        }
+        button{
+            width: 100px;
+            margin-top: -6px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class='header'>
+        <div class="container" >
+            <h1>期刊查询</h1> 
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container" >
+            <form class="form-inline" >
+                <div class="form-group">
+                    <label>期刊类型：</label> 
+                    <select class="form-control">
+                        <option>请选择</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>年份：</label> 
+                    <select class="form-control">
+                        <option>请选择</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>期刊名称：</label> 
+                    <input id="name" type="text" placeholder="请输入期刊名称" />
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span> 查询
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- Table -->
+            <table class="table table-bordered" id="table_page">
+                <thead>
+                    <tr>
+                    <th>期刊类型</th>
+                    <th>期刊年份</th>
+                    <th>期刊名称</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td></td>
+                    <td>2019</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>2019</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>2019</td>
+                    <td></td>
+                    </tr><tr>
+                    <td></td>
+                    <td>2019</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>2019</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>2019</td>
+                    <td></td>
+                    </tr>
+                </tbody>                
+            </table>
+            
+        </div>
+    </div>
+</body>
+</html>
