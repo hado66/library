@@ -14,6 +14,15 @@ def test(request):
     x = cursor.fetchall()
     for i in x:
         print(i[0])
-
-
     return render(request, "test/index.html", {"data": data})
+
+
+def index(request):
+    cursor = connection.cursor()
+    cursor.execute("select table_name from information_schema.tables where table_schema='library'")
+    tables = cursor.fetchall()
+    print(tables)
+
+    return HttpResponse("index")
+
+
