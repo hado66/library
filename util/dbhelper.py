@@ -7,4 +7,5 @@ MVC_HOLDER = MVCHolder(
     DATABASES['default']["USER"],
     DATABASES['default']["PASSWORD"],
     DATABASES['default']["NAME"],
+    # enable_simple_service=True,
 )
