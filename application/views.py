@@ -3,6 +3,7 @@ from util.dbhelper import MVC_HOLDER
 from application import models
 from django.db import connection
 
+
 # Create your views here.
 def test(request):
     models.Test.objects.create(name='title')
@@ -23,6 +24,4 @@ def index(request):
     tables = cursor.fetchall()
     print(tables)
 
-    return HttpResponse("index")
-
-
+    return render(request, "index.html")
