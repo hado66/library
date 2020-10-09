@@ -35,8 +35,7 @@ def test(request, parameter):
 }, api_callback)
 def index(request, parameter):
     import time
-    print(parameter)
-    if not parameter:
+    if not parameter or not parameter['title']:
         return render(request, "index.html")
     start = time.time()
     cursor = connection.cursor()
@@ -44,14 +43,9 @@ def index(request, parameter):
     tables = cursor.fetchall()
     res = []
     for table in tables:
-        data = MVC_HOLDER.services[table[0]].get_first({'name': '北京中医药大学学报'})
+        data = MVC_HOLDER.services[table[0]].get_list({'name': parameter['title'] + '_%_'})
         if data:
-            res.append(data)
-        # print(table[0])
-        # data = MVC_HOLDER.services["center_2017"].get_first({'name': '安徽史学'})
-
-    # data = MVC_HOLDER.services["center_2017"].get_first({'name': '安徽史学'})
-    # print(data)
+            res = res + data
     print(time.time() - start)
     print(res)
     return render(request, "index.html", {"res": res})

@@ -8,7 +8,7 @@ body {
     background-image: url(/static/library/pic/back1.jpg);
     /*opacity: 0.5;*/
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: auto,auto;
     background-color: rgba(196, 191, 191, 0.16);
 }
 
