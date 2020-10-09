@@ -43,7 +43,7 @@ def index(request, parameter):
     tables = cursor.fetchall()
     res = []
     for table in tables:
-        data = MVC_HOLDER.services[table[0]].get_list({'name': parameter['title'] + '_%_'})
+        data = MVC_HOLDER.services[table[0]].get_list({'name': parameter['title'] + '%'})
         if data:
             res = res + data
     print(time.time() - start)
