@@ -48,4 +48,4 @@ def index(request, parameter):
             res = res + data
     print(time.time() - start)
     print(res)
-    return render(request, "index.html", {"res": res})
+    return render(request, "index.html", {"res": res, "parameter": parameter, })
