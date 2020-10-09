@@ -19,7 +19,7 @@
 
     <div class="main">
         <div class="container" >
-            <form class="form-inline" action="/index">
+            <form class="form-inline" action="/index" method="get">
                 <div class="form-group">
                     <label>期刊类型：</label> 
                     <select class="form-control">
@@ -42,10 +42,10 @@
                 </div>
                 <div class="form-group">
                     <label>期刊名称：</label> 
-                    <input id="name" type="text" placeholder="请输入期刊名称" />
+                    <input id="name" type="text" placeholder="请输入期刊名称" name="title" />
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-default">
+                    <button type="submit" class="btn btn-default">
                         <span class="glyphicon glyphicon-search"></span> 查询
                     </button>
                 </div>

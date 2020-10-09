@@ -35,6 +35,9 @@ def test(request, parameter):
 }, api_callback)
 def index(request, parameter):
     import time
+    print(parameter)
+    if not parameter:
+        return render(request, "test/index.html")
     start = time.time()
     cursor = connection.cursor()
     cursor.execute("select table_name from information_schema.tables where table_schema='library'")
