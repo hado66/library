@@ -13,7 +13,7 @@ from util.callback import api_callback, page_callback
     "type": "range[0-999999]",
     "year": "range[0-999999]",
 }, api_callback)
-def test(request,parameter):
+def test(request, parameter):
     models.Test.objects.create(name='title')
     # data = MVC_HOLDER.services["test"].get_list({"name": "test"})
     # print(type(data))
@@ -39,11 +39,16 @@ def index(request, parameter):
     cursor = connection.cursor()
     cursor.execute("select table_name from information_schema.tables where table_schema='library'")
     tables = cursor.fetchall()
-    print(tables)
-    print(parameter)
-    data = MVC_HOLDER.services["center_2017"].get_first({'name': '安徽史学'})
-    print(data)
-    print(time.time()-start)
+    res = []
+    for table in tables:
+        data = MVC_HOLDER.services[table[0]].get_first({'name': '北京中医药大学学报'})
+        if data:
+            res.append(data)
+        # print(table[0])
+        # data = MVC_HOLDER.services["center_2017"].get_first({'name': '安徽史学'})
 
-
-    return render(request, "test/index.html")
+    # data = MVC_HOLDER.services["center_2017"].get_first({'name': '安徽史学'})
+    # print(data)
+    print(time.time() - start)
+    print(res)
+    return render(request, "test/index.html", {"res": res})

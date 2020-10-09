@@ -19,7 +19,7 @@
 
     <div class="main">
         <div class="container" >
-            <form class="form-inline" >
+            <form class="form-inline" action="/index">
                 <div class="form-group">
                     <label>期刊类型：</label> 
                     <select class="form-control">
@@ -62,30 +62,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for row in res %}
                     <tr>
-                    <td></td>
+                    <td>{{ row.id }}</td>
                     <td>2019</td>
-                    <td></td>
+                    <td>{{ row }}</td>
                     </tr>
-                    <tr>
-                    <td></td>
-                    <td>2019</td>
-                    <td></td>
-                    </tr>
-                    <tr>
-                    <td></td>
-                    <td>2019</td>
-                    <td></td>
-                    </tr><tr>
-                    <td></td>
-                    <td>2019</td>
-                    <td></td>
-                    </tr>
-                    <tr>
-                    <td></td>
-                    <td>2019</td>
-                    <td></td>
-                    </tr>
+                    {% endfor %}
                 </tbody>                
             </table>
             <ul class="pagination">
