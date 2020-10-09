@@ -19,15 +19,15 @@
 
     <div class="main">
         <div class="container" >
-            <form class="form-inline" >
+            <form class="form-inline" action="/index" method="get">
                 <div class="form-group">
                     <label>类别：</label>
                     <select class="form-control">
                         <option>请选择</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option>中文核心</option>
+                        <option>CSSCI</option>
+                        <option>重要期刊</option>
+                        <option>顶级期刊</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -42,10 +42,10 @@
                 </div>
                 <div class="form-group">
                     <label>期刊名称：</label> 
-                    <input id="name" type="text" placeholder="请输入期刊名称" />
+                    <input id="name" type="text" placeholder="请输入期刊名称" name="title" />
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-default">
+                    <button type="submit" class="btn btn-default">
                         <span class="glyphicon glyphicon-search"></span> 查询
                     </button>
                 </div>
@@ -65,14 +65,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    </tr>
+                    {% for row in res %}
+                        <tr>
+                            <td>{{ row.id }}</td>
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.ISSN }}</td>
+                            <td>{{ row.CN }}</td>
+                            <td>{{ row.code }}</td>
+                            <td>中文核心</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>                
             </table>
             <ul class="pagination">

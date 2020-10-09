@@ -37,7 +37,7 @@ def index(request, parameter):
     import time
     print(parameter)
     if not parameter:
-        return render(request, "test/index.html")
+        return render(request, "index.html")
     start = time.time()
     cursor = connection.cursor()
     cursor.execute("select table_name from information_schema.tables where table_schema='library'")
@@ -54,4 +54,4 @@ def index(request, parameter):
     # print(data)
     print(time.time() - start)
     print(res)
-    return render(request, "test/index.html", {"res": res})
+    return render(request, "index.html", {"res": res})
