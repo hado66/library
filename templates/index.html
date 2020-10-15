@@ -7,8 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/static/library/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/library/css/index.css">
-<!--    <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>-->
-    <script type="text/javascript" src="/static/library/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="/static/library/css/bootstrap-table.min.css">
+    <script src="/static/library/js/jquery.min.js"></script>
+    <script src="/static/library/js/bootstrap.min.js"></script>
+    <script src="/static/library/js/bootstrap-table.min.js"></script>
+    <script src="/static/library/js/bootstrap-table-zh-CN.min.js"></script>
+
 </head>
 <body>
     <div class='header'>
@@ -75,16 +80,15 @@
                     {% endfor %}
                 </tbody>                
             </table>
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
         </div>
     </div>
+    <script>
+        $("#table_page").bootstrapTable({
+            pagination: true,   //是否显示分页条
+            pageSize: 10,   //一页显示的行数
+            paginationLoop: false,   //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
+            pageList: [100 ]   //选择每页显示多少行，数据过少时可能会没有效果
+        });
+    </script>
 </body>
 </html>
