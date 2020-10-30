@@ -29,23 +29,32 @@ def test(request, parameter):
 
 @parse_parameter
 @match_parameter({
-    "title": "length[0-25]",
-    "type": "range[0-999999]",
-    "year": "range[0-999999]",
+    "type": "length[0-25]",
+    "name": "length[0-25]",
+    "year": "length[0-25]",
 }, api_callback)
 def index(request, parameter):
-    import time
-    if not parameter or not parameter['title']:
-        return render(request, "index.html")
-    start = time.time()
-    cursor = connection.cursor()
-    cursor.execute("select table_name from information_schema.tables where table_schema='library'")
-    tables = cursor.fetchall()
     res = []
-    for table in tables:
-        data = MVC_HOLDER.services[table[0]].get_list({'name': parameter['title'] + '%'})
-        if data:
-            res = res + data
-    print(time.time() - start)
+    if not parameter or not parameter['title']:
+        return render(request, "index.html",{"res": res, "parameter": parameter, })
+
+    if parameter["type"]:
+        res = MVC_HOLDER.services[parameter["type"]].get_list({'name': parameter['title'] + '%'})
+
+
+
+    cursor = connection.cursor()
+    # cursor.execute("select table_name from information_schema.tables where table_schema='library'")
+    # tables = cursor.fetchall()
+    # #
+    # #
+    # #
+    # for table in tables:
+    #     data = MVC_HOLDER.services[table[0]].get_list({'name': parameter['title'] + '%'})
+    #     print(table[0])
+    #     if data:
+    #         res = res + data
+    # print(res)
     print(res)
     return render(request, "index.html", {"res": res, "parameter": parameter, })
+    return HttpResponse("ok")

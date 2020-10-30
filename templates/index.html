@@ -27,12 +27,12 @@
             <form class="form-inline" action="/index" method="get">
                 <div class="form-group">
                     <label>类别：</label>
-                    <select class="form-control">
-                        <option>请选择</option>
-                        <option>中文核心</option>
-                        <option>CSSCI</option>
-                        <option>重要期刊</option>
-                        <option>顶级期刊</option>
+                    <select class="form-control" name="type">
+                        <option value="">请选择</option>
+                        <option value="chinese_core">中文核心</option>
+                        <option value="cssci">CSSCI</option>
+                        <option value="emphasis_journal">重要期刊</option>
+                        <option value="top_journal">顶级期刊</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -64,6 +64,7 @@
                     <th>ISSN号</th>
                     <th>CN号</th>
                     <th>学科代码</th>
+                    <th>年份</th>
                     <th>所属类别</th>
                     </tr>
                 </thead>
@@ -75,6 +76,7 @@
                             <td>{{ row.ISSN }}</td>
                             <td>{{ row.CN }}</td>
                             <td>{{ row.code }}</td>
+                            <td>{{ row.year }}</td>
                             <td>中文核心</td>
                         </tr>
                     {% endfor %}
