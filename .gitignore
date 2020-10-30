@@ -97,6 +97,7 @@ celerybeat-schedule
 env/
 venv/
 ENV/
+lirary_env/
 env.bak/
 venv.bak/
 
