@@ -34,16 +34,39 @@ def test(request, parameter):
     "year": "length[0-25]",
 }, api_callback)
 def index(request, parameter):
+    dic_code = {1: "chinese_core", 2: "cssci", 3: "emphasis_journal", 4: "top_journal"}
+    dic_cn = {"chinese_core": "中文核心", "cssci": "CSSCI", "emphasis_journal": "重要期刊", "top_journal": "顶级期刊"}
     res = []
     if not parameter or not parameter['title']:
         return render(request, "index.html",{"res": res, "parameter": parameter, })
+    if parameter['title'] and not parameter['type']:
+        # cursor = connection.cursor()
+        # cursor.execute("select table_name from information_schema.tables where table_schema='library'")
+        # tables = cursor.fetchall()
+        # print(tables)
+        #
+        #
+        #
+        tables=dic_code.values()
+        for table in tables:
+            data = MVC_HOLDER.services[table].get_list({'name': parameter['title'] + '%'})
+            table_name = table
+            if data:
+                for i in data:
+                    i["type"]=dic_cn[table_name]
+                res = res + data
+        print(res)
 
     if parameter["type"]:
-        res = MVC_HOLDER.services[parameter["type"]].get_list({'name': parameter['title'] + '%'})
+        data = MVC_HOLDER.services[parameter["type"]].get_list({'name': parameter['title'] + '%'})
+        if data:
+            for i in data:
+                i["type"]=dic_cn[parameter["type"]]
+            res = res+data
 
 
 
-    cursor = connection.cursor()
+    # cursor = connection.cursor()
     # cursor.execute("select table_name from information_schema.tables where table_schema='library'")
     # tables = cursor.fetchall()
     # #
@@ -55,6 +78,4 @@ def index(request, parameter):
     #     if data:
     #         res = res + data
     # print(res)
-    print(res)
     return render(request, "index.html", {"res": res, "parameter": parameter, })
-    return HttpResponse("ok")

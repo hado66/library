@@ -7,12 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/static/library/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/library/css/index.css">
-
     <link rel="stylesheet" href="/static/library/css/bootstrap-table.min.css">
-    <script src="/static/library/js/jquery.min.js"></script>
-    <script src="/static/library/js/bootstrap.min.js"></script>
-    <script src="/static/library/js/bootstrap-table.min.js"></script>
-    <script src="/static/library/js/bootstrap-table-zh-CN.min.js"></script>
+
+
 
 </head>
 <body>
@@ -27,12 +24,12 @@
             <form class="form-inline" action="/index" method="get">
                 <div class="form-group">
                     <label>类别：</label>
-                    <select class="form-control" name="type">
+                    <select class="form-control" name="type" id="type">
                         <option value="">请选择</option>
-                        <option value="chinese_core">中文核心</option>
-                        <option value="cssci">CSSCI</option>
-                        <option value="emphasis_journal">重要期刊</option>
-                        <option value="top_journal">顶级期刊</option>
+                        <option value="chinese_core" {% if parameter.type == "chinese_core" %} selected="selected"{% endif %}>中文核心</option>
+                        <option value="cssci" {% if parameter.type == "cssci" %} selected="selected"{% endif %}>CSSCI</option>
+                        <option value="emphasis_journal" {% if parameter.type == "emphasis_journal" %} selected="selected"{% endif %}>重要期刊</option>
+                        <option value="top_journal" {% if parameter.type == "top_journal" %} selected="selected"{% endif %}>顶级期刊</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -77,20 +74,55 @@
                             <td>{{ row.CN }}</td>
                             <td>{{ row.code }}</td>
                             <td>{{ row.year }}</td>
-                            <td>中文核心</td>
+                            <td>{{ row.type }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>                
             </table>
         </div>
     </div>
+    <script src="/static/library/js/jquery.min.js"></script>
+    <script src="/static/library/js/bootstrap.min.js"></script>
+    <script src="/static/library/js/bootstrap-table.min.js"></script>
+    <script src="/static/library/js/bootstrap-table-zh-CN.min.js"></script>
+{#    <script src="/static/library/js/jquery-1.12.1.min.js"></script>#}
     <script>
         $("#table_page").bootstrapTable({
             pagination: true,   //是否显示分页条
             pageSize: 10,   //一页显示的行数
             paginationLoop: false,   //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
-            pageList: [100 ]   //选择每页显示多少行，数据过少时可能会没有效果
+            pageList: [100]   //选择每页显示多少行，数据过少时可能会没有效果
         });
     </script>
+    <script>
+        $("#type").onclick(function () {
+            alert("fadsf");
+        });
+{#        $("#type").on("click",function () {#}
+{#            alert($this);#}
+{#        })#}
+    </script>
+{#    <script>#}
+{#        $("#type option").on("click", function () {#}
+{#            var ths = $(this);#}
+{#            console.log(ths);#}
+{#            alert(ths);#}
+{#            $.ajax({#}
+{#                type: "POST",#}
+{#                url: "/supply/upper",#}
+{#                data: {#}
+{#                    id:{{ id }},#}
+{#                    status: 3,#}
+{#                },#}
+{#                dataType: "json",#}
+{#                success: function (res) {#}
+{#                    setTimeout(function () {#}
+{#                        window.location.reload();#}
+{#                    }, 500);#}
+{#                }#}
+{#            });#}
+{#        });#}
+{#    </script>#}
 </body>
+
 </html>
