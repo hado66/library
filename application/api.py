@@ -28,10 +28,11 @@ def get_year(request, parameter):
     :return: 添加结果
     """
     # 执行
+    dic_code = {1: "chinese_core", 2: "cssci", 3: "emphasis_journal", 4: "top_journal"}
     data=  []
     try:
         cursor = connection.cursor()
-        sql = "select distinct year from "+parameter["type"]
+        sql = "select distinct year from "+dic_code.get(int(parameter["type"]))
         cursor.execute(sql)
         data_tuple = cursor.fetchall()
         for i in data_tuple:

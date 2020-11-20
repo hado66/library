@@ -25,27 +25,27 @@
                 <label>类别：</label>
                 <select class="form-control" name="type" id="type">
                     <option value="">请选择</option>
-                    <option value="chinese_core" {% if parameter.type == "chinese_core" %}
+                    <option value="1" {% if parameter.type == "1" %}
                             selected="selected"{% endif %}>中文核心
                     </option>
-                    <option value="cssci" {% if parameter.type == "cssci" %} selected="selected"{% endif %}>CSSCI
+                    <option value="2" {% if parameter.type == "2" %} selected="selected"{% endif %}>CSSCI
                     </option>
-                    <option value="emphasis_journal" {% if parameter.type == "emphasis_journal" %}
+                    <option value="3" {% if parameter.type == "3" %}
                             selected="selected"{% endif %}>重要期刊
                     </option>
-                    <option value="top_journal" {% if parameter.type == "top_journal" %} selected="selected"{% endif %}>
+                    <option value="4" {% if parameter.type == "4" %} selected="selected"{% endif %}>
                         顶级期刊
                     </option>
                 </select>
             </div>
             <div class="form-group">
                 <label>年份：</label>
-                <select class="form-control">
+                <select class="form-control" id="years">
                     <option>请选择</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+{#                    <option>2</option>#}
+{#                    <option>3</option>#}
+{#                    <option>4</option>#}
+{#                    <option>5</option>#}
                 </select>
             </div>
             <div class="form-group">
@@ -92,7 +92,6 @@
 <script src="/static/library/js/bootstrap.min.js"></script>
 <script src="/static/library/js/bootstrap-table.min.js"></script>
 <script src="/static/library/js/bootstrap-table-zh-CN.min.js"></script>
-{#    <script src="/static/library/js/jquery-1.12.1.min.js"></script>#}
 <script>
     $("#table_page").bootstrapTable({
         pagination: true,   //是否显示分页条
@@ -102,17 +101,34 @@
     });
 </script>
 <script>
-    {#        $("#type").onclick(function () {#}
-    {#            alert("fadsf");#}
-    {#        });#}
-    {#        $('#type').change(function(){#}
-    {#        alert($(this).children('option:selected').val());#}
-    {#        $("#type").on("click",function () {#}
-    {#            alert($this);#}
-    {#        })#}
-{#    document.getElementById("type").change(function (e) {#}
-{#        console.log("change")#}
-{#    };#}
+    $("#type").change(function () {
+        var myselect=document.getElementById("type");
+        var ins=myselect.selectedIndex;
+        var index = myselect.options[ins].value;
+        if(index){
+            getYear(index);
+        }
+    });
+    function getYear(index) {
+        $.ajax({
+                url: "/getYear?type="+index,
+                type: "get",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result)
+                    if (result.code == 0) {
+                        obj = document.getElementById("years");
+                        result.data.forEach(function (element) {
+                            obj.options.add(new Option(element,element));
+                        });
+                       console.log(result.data);
+                    }else {
+                        alert("内部调用错误,直接使用模糊搜索");
+                    }
+                }
+            });
+    }
+
 
 
 </script>
