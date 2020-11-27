@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80021
 File Encoding         : 65001
 
-Date: 2020-11-27 15:19:17
+Date: 2020-11-27 15:33:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21567,66 +21567,68 @@ CREATE TABLE `top_journal` (
   `ISSN` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `CN` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `year` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2061 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2065 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of top_journal
 -- ----------------------------
-INSERT INTO `top_journal` VALUES ('2003', '法学研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2004', '管理世界', null, null, null);
-INSERT INTO `top_journal` VALUES ('2005', '教育研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2006', '经济研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2007', '考古', null, null, null);
-INSERT INTO `top_journal` VALUES ('2008', '历史研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2009', '求是', null, null, null);
-INSERT INTO `top_journal` VALUES ('2010', '民族研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2011', '人口研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2012', '中国图书馆学报', null, null, null);
-INSERT INTO `top_journal` VALUES ('2014', '文学评论', null, null, null);
-INSERT INTO `top_journal` VALUES ('2015', '新闻与传播研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2016', '文艺研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2017', '中国语文', null, null, null);
-INSERT INTO `top_journal` VALUES ('2018', '哲学研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2019', '世界经济与政治', null, null, null);
-INSERT INTO `top_journal` VALUES ('2020', '中国社会科学', null, null, null);
-INSERT INTO `top_journal` VALUES ('2021', '中国法学', null, null, null);
-INSERT INTO `top_journal` VALUES ('2022', '法学', null, null, null);
-INSERT INTO `top_journal` VALUES ('2023', '南开管理评论', null, null, null);
-INSERT INTO `top_journal` VALUES ('2024', '管理学报', null, null, null);
-INSERT INTO `top_journal` VALUES ('2025', '中国人口·资源与环境', null, null, null);
-INSERT INTO `top_journal` VALUES ('2026', '北京大学教育评论', null, null, null);
-INSERT INTO `top_journal` VALUES ('2027', '高等教育研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2028', '世界经济', null, null, null);
-INSERT INTO `top_journal` VALUES ('2029', '中国工业经济', null, null, null);
-INSERT INTO `top_journal` VALUES ('2030', '金融研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2031', '考古学报', null, null, null);
-INSERT INTO `top_journal` VALUES ('2032', '文物', null, null, null);
-INSERT INTO `top_journal` VALUES ('2033', '近代史研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2034', '中国史研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2035', '马克思主义研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2036', '中共党史研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2037', '中央民族大学学报(哲学社会科学版)', null, null, null);
-INSERT INTO `top_journal` VALUES ('2038', '西南民族大学学报(人文社会科学版)', null, null, null);
-INSERT INTO `top_journal` VALUES ('2039', '旅游学刊', null, null, null);
-INSERT INTO `top_journal` VALUES ('2040', '社会学研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2041', '中国人口科学', null, null, null);
-INSERT INTO `top_journal` VALUES ('2042', '体育科学', null, null, null);
-INSERT INTO `top_journal` VALUES ('2043', '统计研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2044', '图书情报工作', null, null, null);
-INSERT INTO `top_journal` VALUES ('2045', '大学图书馆学报', null, null, null);
-INSERT INTO `top_journal` VALUES ('2046', '文学遗产', null, null, null);
-INSERT INTO `top_journal` VALUES ('2047', '外国文学研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2048', '心理学报', null, null, null);
-INSERT INTO `top_journal` VALUES ('2049', '国际新闻界', null, null, null);
-INSERT INTO `top_journal` VALUES ('2050', '中央音乐学院学报', null, null, null);
-INSERT INTO `top_journal` VALUES ('2051', '外语教学与研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2052', '世界汉语教学', null, null, null);
-INSERT INTO `top_journal` VALUES ('2053', '哲学动态', null, null, null);
-INSERT INTO `top_journal` VALUES ('2054', '道德与文明', null, null, null);
-INSERT INTO `top_journal` VALUES ('2055', '当代亚太', null, null, null);
-INSERT INTO `top_journal` VALUES ('2056', '政治学研究', null, null, null);
-INSERT INTO `top_journal` VALUES ('2057', '中国人民大学学报', null, null, null);
-INSERT INTO `top_journal` VALUES ('2058', '北京师范大学学报（社会科学版）', null, null, null);
-INSERT INTO `top_journal` VALUES ('2059', '北京大学学报（哲学社会科学版）', null, null, null);
-INSERT INTO `top_journal` VALUES ('2060', '清华大学学报（哲学社会科学版）', null, null, null);
+INSERT INTO `top_journal` VALUES ('1', '法学研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('2', '管理世界', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('3', '教育研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('4', '经济研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('5', '考古', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('6', '历史研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('7', '求是', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('8', '民族研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('9', '人口研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('10', '中国图书馆学报', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('11', '文学评论', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('12', '新闻与传播研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('13', '文艺研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('14', '中国语文', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('15', '哲学研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('16', '世界经济与政治', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('17', '中国社会科学', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('18', '中国法学', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('19', '法学', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('20', '南开管理评论', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('21', '管理学报', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('22', '中国人口·资源与环境', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('23', '北京大学教育评论', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('24', '高等教育研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('25', '世界经济', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('26', '中国工业经济', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('27', '金融研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('28', '考古学报', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('29', '文物', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('30', '近代史研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('31', '中国史研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('32', '马克思主义研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('33', '中共党史研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('34', '中央民族大学学报(哲学社会科学版)', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('35', '西南民族大学学报(人文社会科学版)', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('36', '旅游学刊', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('37', '社会学研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('38', '中国人口科学', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('39', '体育科学', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('40', '统计研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('41', '图书情报工作', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('42', '大学图书馆学报', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('43', '文学遗产', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('44', '外国文学研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('45', '心理学报', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('46', '国际新闻界', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('47', '中央音乐学院学报', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('48', '外语教学与研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('49', '世界汉语教学', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('50', '哲学动态', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('51', '道德与文明', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('52', '当代亚太', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('53', '政治学研究', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('54', '中国人民大学学报', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('55', '北京师范大学学报（社会科学版）', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('56', '北京大学学报（哲学社会科学版）', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('57', '清华大学学报（哲学社会科学版）', null, null, null, '2018');
+INSERT INTO `top_journal` VALUES ('2061', '', null, null, null, '');
