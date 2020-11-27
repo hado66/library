@@ -81,7 +81,9 @@
             {% endfor %}
             </tbody>
         </table>
+        <div class="remark pull-left">*注:若查询出结果数据过多,请完整输入期刊名称!</div>
     </div>
+
 </div>
 <script src="/static/library/js/jquery.min.js"></script>
 <script src="/static/library/js/bootstrap.min.js"></script>
@@ -95,37 +97,6 @@
         pageList: [100]   //选择每页显示多少行，数据过少时可能会没有效果
     });
 </script>
-
-{##}
-{#<script>#}
-{#    $("#type").change(function () {#}
-{#        var myselect=document.getElementById("type");#}
-{#        var ins=myselect.selectedIndex;#}
-{#        var index = myselect.options[ins].value;#}
-{#        if(index &&index!=4){#}
-{#            getYear(index);#}
-{#        }#}
-{#    });#}
-{#    function getYear(index) {#}
-{#        $.ajax({#}
-{#                url: "/getYear?type="+index,#}
-{#                type: "get",#}
-{#                dataType: "json",#}
-{#                success: function (result) {#}
-{#                    if (result.code == 0) {#}
-{#                        obj = document.getElementById("years");#}
-{#                        $("#years").find("option").remove();#}
-{#                        result.data.forEach(function (element) {#}
-{#                            obj.options.add(new Option(element,element));#}
-{#                        });#}
-{#                    }else {#}
-{#                        alert("内部调用错误,直接使用模糊搜索");#}
-{#                    }#}
-{#                }#}
-{#            });#}
-{#    }#}
-{##}
-{#</script>#}
 
 </body>
 

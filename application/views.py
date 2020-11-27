@@ -13,18 +13,7 @@ from util.callback import api_callback, page_callback
     "type": "range[0-999999]",
     "year": "range[0-999999]",
 }, api_callback)
-def test(request, parameter):
-    models.Test.objects.create(name='title')
-    # data = MVC_HOLDER.services["test"].get_list({"name": "test"})
-    # print(type(data))
-    # print(data)
-    data = "动态的后端数据"
-    cursor = connection.cursor()
-    # print(cursor.execute("select table_name from information_schema.tables where table_schema='library'"))
-    # x = cursor.fetchall()
-    # for i in x:
-    #     print(i[0])
-    return render(request, "test/index.html", {"data": data})
+
 
 
 @parse_parameter
@@ -34,7 +23,6 @@ def test(request, parameter):
     # "year": "length[0-25]",
 }, api_callback)
 def index(request, parameter):
-    print(parameter)
     dic_code = {1: "chinese_core", 2: "cssci", 3: "emphasis_journal", 4: "top_journal"}
     dic_cn = {"chinese_core": "中文核心", "cssci": "CSSCI", "emphasis_journal": "重要期刊", "top_journal": "顶级期刊"}
     res = []
@@ -51,17 +39,12 @@ def index(request, parameter):
                 for i in data:
                     i["type"]=dic_cn[table_name]
                 res = res + data
-        print(res)
-    #
     if parameter["type"]:
         data = MVC_HOLDER.services[dic_code.get(int(parameter["type"]))].get_list({'name': parameter['title'] + '%'})
-        print()
-        print(data)
         if data:
             for i in data:
                 i["type"]=dic_cn[dic_code.get(int(parameter["type"]))]
             res = res+data
-            print(res)
     # if parameter["type"] and parameter['year']:
     #     data = MVC_HOLDER.services[dic_code.get(int(parameter["type"]))].get_list({'name': parameter['title'] + '%','year':parameter['year']})
     #     print()
