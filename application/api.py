@@ -5,10 +5,9 @@
 # @Date  : 2020/10/30
 # @Desc  :
 
-from django.views.decorators.http import require_POST, require_GET
+from django.views.decorators.http import require_GET
 
 from util.callback import api_callback
-from util.dbhelper import MVC_HOLDER
 from util.parameter import parse_parameter, check_parameter
 from util.result import HttpResponseCMD, Code, Message
 from django.db import connection
