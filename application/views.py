@@ -31,7 +31,7 @@ def test(request, parameter):
 @match_parameter({
     "type": "length[0-25]",
     "name": "length[0-25]",
-    "year": "length[0-25]",
+    # "year": "length[0-25]",
 }, api_callback)
 def index(request, parameter):
     print(parameter)
@@ -52,8 +52,8 @@ def index(request, parameter):
                     i["type"]=dic_cn[table_name]
                 res = res + data
         print(res)
-
-    if parameter["type"] and parameter['year']=="请选择":
+    #
+    if parameter["type"]:
         data = MVC_HOLDER.services[dic_code.get(int(parameter["type"]))].get_list({'name': parameter['title'] + '%'})
         print()
         print(data)
@@ -62,15 +62,15 @@ def index(request, parameter):
                 i["type"]=dic_cn[dic_code.get(int(parameter["type"]))]
             res = res+data
             print(res)
-    if parameter["type"] and parameter['year']:
-        data = MVC_HOLDER.services[dic_code.get(int(parameter["type"]))].get_list({'name': parameter['title'] + '%','year':parameter['year']})
-        print()
-        print(data)
-        if data:
-            for i in data:
-                i["type"]=dic_cn[dic_code.get(int(parameter["type"]))]
-            res = res+data
-            print(res)
+    # if parameter["type"] and parameter['year']:
+    #     data = MVC_HOLDER.services[dic_code.get(int(parameter["type"]))].get_list({'name': parameter['title'] + '%','year':parameter['year']})
+    #     print()
+    #     print(data)
+    #     if data:
+    #         for i in data:
+    #             i["type"]=dic_cn[dic_code.get(int(parameter["type"]))]
+    #         res = res+data
+    #         print(res)
 
 
 

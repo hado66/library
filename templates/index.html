@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/static/library/css/index.css">
     <link rel="stylesheet" href="/static/library/css/bootstrap-table.min.css">
 
-
 </head>
 <body>
 <div class='header'>
@@ -38,12 +37,12 @@
                     </option>
                 </select>
             </div>
-            <div class="form-group">
-                <label>年份：</label>
-                <select class="form-control" id="years" name="year">
-                    <option>请选择</option>
-                </select>
-            </div>
+{#            <div class="form-group">#}
+{#                <label>年份：</label>#}
+{#                <select class="form-control" id="years" name="year">#}
+{#                    <option>请选择</option>#}
+{#                </select>#}
+{#            </div>#}
             <div class="form-group">
                 <label>期刊名称：</label>
                 <input id="name" type="text" class="form-control" placeholder="请输入期刊名称" name="title"
@@ -97,108 +96,37 @@
     });
 </script>
 
+{##}
 {#<script>#}
-{#    function changeSelect(e) {#}
-{#         var select2Option = [] //select2下拉选#}
-{#         var selectedValue = e.target.value //传入的选项值#}
-{#         var select2 = document.getElementById('years');#}
-{#         if(selectedValue === '顶级期刊'){#}
-{#            select2.innerHTML = '';#}
-{#             return //5 不请求 情况下拉#}
-{#         }#}
-{#         select2.innerHTML = '';#}
-{#         // 模拟请求#}
-{#         let data = setTimeout(() => {#}
-{#            selectedValue === '1'?select2Option = ['1']:(selectedValue==='2'?select2Option = ['2']:(selectedValue ==='3'?select2Option = ['3']:select2Option =['4']))#}
-{#            select2Option.forEach(ele =>{#}
-{#                let options = document.createElement('option');#}
-{#                options.setAttribute('value',ele);#}
-{#                options.innerHTML = ele;#}
-{#                select2.appendChild(options)#}
-{#            })#}
-{#         }, 1000);#}
+{#    $("#type").change(function () {#}
+{#        var myselect=document.getElementById("type");#}
+{#        var ins=myselect.selectedIndex;#}
+{#        var index = myselect.options[ins].value;#}
+{#        if(index &&index!=4){#}
+{#            getYear(index);#}
+{#        }#}
+{#    });#}
+{#    function getYear(index) {#}
 {#        $.ajax({#}
 {#                url: "/getYear?type="+index,#}
 {#                type: "get",#}
 {#                dataType: "json",#}
 {#                success: function (result) {#}
-{#                    console.log(result)#}
 {#                    if (result.code == 0) {#}
 {#                        obj = document.getElementById("years");#}
-{#                        var optionLength = obj.length;#}
-{#                        for(var i=1;i <optionLength;i++)#}
-{#                        {#}
-{#                            obj.removeChild(selectOptions[0]);#}
-{#                        }#}
+{#                        $("#years").find("option").remove();#}
 {#                        result.data.forEach(function (element) {#}
 {#                            obj.options.add(new Option(element,element));#}
 {#                        });#}
-{#                       console.log(result.data);#}
 {#                    }else {#}
 {#                        alert("内部调用错误,直接使用模糊搜索");#}
 {#                    }#}
 {#                }#}
 {#            });#}
-{##}
-{##}
-{#     }#}
-{##}
+{#    }#}
 {##}
 {#</script>#}
 
-
-<script>
-    $("#type").change(function () {
-        var myselect=document.getElementById("type");
-        var ins=myselect.selectedIndex;
-        var index = myselect.options[ins].value;
-        if(index &&index!=4){
-            getYear(index);
-        }
-    });
-    function getYear(index) {
-        $.ajax({
-                url: "/getYear?type="+index,
-                type: "get",
-                dataType: "json",
-                success: function (result) {
-                    if (result.code == 0) {
-                        obj = document.getElementById("years");
-                        $("#years").find("option").remove();
-                        result.data.forEach(function (element) {
-                            obj.options.add(new Option(element,element));
-                        });
-                    }else {
-                        alert("内部调用错误,直接使用模糊搜索");
-                    }
-                }
-            });
-    }
-
-
-
-</script>
-{#    <script>#}
-{#        $("#type option").on("click", function () {#}
-{#            var ths = $(this);#}
-{#            console.log(ths);#}
-{#            alert(ths);#}
-{#            $.ajax({#}
-{#                type: "POST",#}
-{#                url: "/supply/upper",#}
-{#                data: {#}
-{#                    id:{{ id }},#}
-{#                    status: 3,#}
-{#                },#}
-{#                dataType: "json",#}
-{#                success: function (res) {#}
-{#                    setTimeout(function () {#}
-{#                        window.location.reload();#}
-{#                    }, 500);#}
-{#                }#}
-{#            });#}
-{#        });#}
-{#    </script>#}
 </body>
 
 </html>
