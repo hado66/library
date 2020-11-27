@@ -20,7 +20,6 @@ from application import api
 
 urlpatterns = [
     url(r'^$', views.index),
-    path('test/', views.test),
     path('index/', views.index),
     path('getYear/', api.get_year),
 ]
