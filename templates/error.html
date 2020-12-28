@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>期刊查询系统</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/library/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/library/css/index.css">
+    <link rel="stylesheet" href="/static/library/css/bootstrap-table.min.css">
+
+</head>
+<body>
+<div class='header'>
+    <div class="container">
+        <h1>期刊查询系统</h1>
+    </div>
+</div>
+
+<div class="main">
+    <div class="container">
+        <!-- Table -->
+        <table class="table table-bordered" id="table_page">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>中文刊名</th>
+                <th>ISSN号</th>
+                <th>CN号</th>
+                <th>学科代码</th>
+                <th>年份</th>
+                <th>所属类别</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ row.id }}</td>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.ISSN }}</td>
+                    <td>{{ row.CN }}</td>
+                    <td>{{ row.code }}</td>
+                    <td>{{ row.year }}</td>
+                    <td>{{ row.type }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="remark pull-left">当前系统正在维护,请联系相关工作人员!</div>
+    </div>
+
+</div>
+<script src="/static/library/js/jquery.min.js"></script>
+<script src="/static/library/js/bootstrap.min.js"></script>
+<script src="/static/library/js/bootstrap-table.min.js"></script>
+<script src="/static/library/js/bootstrap-table-zh-CN.min.js"></script>
+{#<script>#}
+{#    $("#table_page").bootstrapTable({#}
+{#        pagination: true,   //是否显示分页条#}
+{#        pageSize: 10,   //一页显示的行数#}
+{#        paginationLoop: false,   //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页#}
+{#        pageList: [100]   //选择每页显示多少行，数据过少时可能会没有效果#}
+{#    });#}
+{#</script>#}
+
+</body>
+
+</html>

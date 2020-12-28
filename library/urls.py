@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', views.index),
     path('index/', views.index),
     path('getYear/', api.get_year),
+    path('error/', views.error),
 ]
